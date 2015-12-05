@@ -30,7 +30,7 @@ def find_tweet(tweet_id):
     soup = BeautifulSoup(html, "html.parser")
 
     author = soup.find("div", class_="follow-bar").contents[1]['data-screen-name']
-    content = soup.find("p", class_="TweetTextSize--28px").contents[1]
+    content = "".join(soup.find("p", class_="TweetTextSize--28px").strings)
     children = []
 
     for raw_child in soup.find_all("div", class_="ThreadedConversation-tweet"):
